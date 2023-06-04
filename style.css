@@ -82,3 +82,7 @@ img{
 .input:focus{
     outline: none;
 }
+
+.error{
+    display: none;
+}
