@@ -26,7 +26,7 @@ function changeSize() {
   for (let i = 0; i < size * size; i++) {
     const pixel = document.createElement('div');
     pixel.addEventListener('mouseover', colorPixel);
-    pixel.style.background = 'blue';
+    pixel.style.background = 'white';
     pixel.classList.add("pixels");
     board.appendChild(pixel);
   }
@@ -34,6 +34,21 @@ function changeSize() {
 
 sizeBtn.addEventListener('click', changeSize);
 
+random.addEventListener('click', () => {
+  click = true;
+})
+
+color.addEventListener('click', () => {
+  click = false;
+})
+
 function colorPixel(){
-  this.style.background = color.value
+  label.style.color = color.value;
+
+  if(click){
+    this.style.background = `hsl(${Math.random() * 360}, 100%, 50%)`;
+  }
+  else{
+    this.style.background = color.value;
+  }
 }
