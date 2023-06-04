@@ -20,7 +20,7 @@ body{
     display: grid;
     height: 500px;
     width: 500px;
-    border: 1px solid black;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .buttons{
@@ -30,6 +30,17 @@ body{
     gap: 25px;
 }
 
+button{
+    width: 100%;
+    margin: 0 auto;
+    padding: 5px;
+    border: transparent;
+    border-radius: 10px;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 800;
+}
+
 label{
     font-family:'Courier New', Courier, monospace;
     font-weight: 800;
@@ -37,4 +48,37 @@ label{
 
 img{
     margin-top: -100px;
+}
+
+.size-btn{
+    padding: 5px;
+    width: 60%;
+    background: rgb(92, 92, 212);
+}
+
+.random{
+    background: linear-gradient(to right, rgb(216, 84, 84), rgb(255, 193, 77), rgb(250, 250, 77), rgb(63, 245, 63), rgb(47, 47, 255), rgb(162, 48, 243), rgb(248, 49, 248));
+}
+
+.eraser{
+    background: grey;
+}
+
+.Reset{
+    background: rgb(88, 87, 87);
+}
+
+.clicked{
+    scale: 1.1;
+}
+
+.input{
+    padding: 10px;
+    border-radius: 5px;
+    border: transparent;
+    background-color: rgb(240, 235, 235);
+}
+
+.input:focus{
+    outline: none;
 }

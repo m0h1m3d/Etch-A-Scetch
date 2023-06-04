@@ -5,6 +5,7 @@ const eraser = document.querySelector('.eraser');
 const reset = document.querySelector('.Reset');
 const squares = document.querySelectorAll('.pixels');
 const random = document.querySelector('.random');
+const btns = document.querySelectorAll('button');
 let click = true;
 
 
@@ -60,3 +61,12 @@ function colorPixel(){
     this.style.background = 'white';
   }
 }
+
+btns.forEach((btn) => {
+  btn.addEventListener('click', () => {
+    btn.classList.add('clicked');
+    setTimeout(function(){
+      btn.classList.remove('clicked');
+    }, 100);
+  })
+});
