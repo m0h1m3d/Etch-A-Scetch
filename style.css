@@ -1,0 +1,40 @@
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main{
+    display: flex;
+    gap: 100px;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.board {
+    display: grid;
+    height: 500px;
+    width: 500px;
+    border: 1px solid black;
+}
+
+.buttons{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 25px;
+}
+
+label{
+    font-family:'Courier New', Courier, monospace;
+    font-weight: 800;
+}
+
+img{
+    margin-top: -100px;
+}
