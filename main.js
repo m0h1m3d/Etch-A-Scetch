@@ -6,6 +6,7 @@ const reset = document.querySelector('.Reset');
 const squares = document.querySelectorAll('.pixels');
 const random = document.querySelector('.random');
 const btns = document.querySelectorAll('button');
+const errorMsg = document.querySelector('.error');
 let click = true;
 
 
@@ -14,9 +15,22 @@ function changeSize() {
     const input = document.querySelector('.input').value;
     let size = parseInt(input);
 
+    if(input < 0 || input > 100){
+      console.log('Invalid number of pixles!');
+    
+      errorMsg.style.display = 'flex';
+      errorMsg.style.color = 'red';
+      errorMsg.style.margin = '0 auto';
+      errorMsg.style.fontSize = '0.8rem';
+      board.style.display = 'none';
+    }
+    else{
+      board.style.display = 'grid';
+      errorMsg.style.display = 'none';
+    }
+
   board.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
   board.style.gridTemplateRows = `repeat(${size}, 1fr)`;
-
   board.innerHTML = "";
 
   reset.addEventListener('click', erase)
@@ -24,6 +38,7 @@ function changeSize() {
     function erase(){
         board.innerHTML = '';
     }
+
 
   for (let i = 0; i < size * size; i++) {
     const pixel = document.createElement('div');
