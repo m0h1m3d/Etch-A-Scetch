@@ -1,10 +1,11 @@
 const sizeBtn = document.querySelector('.size-btn');
 const color = document.querySelector('.color');
 const label = document.querySelector('.label');
+const eraser = document.querySelector('.eraser');
 const reset = document.querySelector('.Reset');
 const squares = document.querySelectorAll('.pixels');
 const random = document.querySelector('.random');
-let click;
+let click = true;
 
 
 function changeSize() {
@@ -34,21 +35,28 @@ function changeSize() {
 
 sizeBtn.addEventListener('click', changeSize);
 
-random.addEventListener('click', () => {
+color.addEventListener('click', () => {
   click = true;
 })
 
-color.addEventListener('click', () => {
+random.addEventListener('click', () => {
   click = false;
+})
+
+eraser.addEventListener('click', () => {
+  click = 'erase';
 })
 
 function colorPixel(){
   label.style.color = color.value;
 
-  if(click){
+  if(click === true){
+    this.style.background = color.value;
+  }
+  else if (click === false){
     this.style.background = `hsl(${Math.random() * 360}, 100%, 50%)`;
   }
-  else{
-    this.style.background = color.value;
+  else if (click === 'erase'){
+    this.style.background = 'white';
   }
 }
