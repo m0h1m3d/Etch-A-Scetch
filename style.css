@@ -86,3 +86,8 @@ img{
 .error{
     display: none;
 }
+
+.btn-color{
+    width: 80px;
+    background:rgb(92, 92, 212);
+}

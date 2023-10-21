@@ -8,6 +8,7 @@ const random = document.querySelector('.random');
 const btns = document.querySelectorAll('button');
 const errorMsg = document.querySelector('.error');
 let click = true;
+let Color;
 
 
 function changeSize() {
@@ -44,7 +45,7 @@ function changeSize() {
     const pixel = document.createElement('div');
     pixel.addEventListener('mouseover', colorPixel);
     pixel.style.background = 'white';
-    pixel.classList.add("pixels");
+    // pixel.classList.add("pixels");
     board.appendChild(pixel);
   }
 }
@@ -52,30 +53,38 @@ function changeSize() {
 sizeBtn.addEventListener('click', changeSize);
 
 color.addEventListener('click', () => {
-  click = true;
+  Color = 'color';
+  console.log(Color);
 })
 
 random.addEventListener('click', () => {
-  click = false;
+  Color = 'random';
+  console.log(Color);
 })
 
 eraser.addEventListener('click', () => {
-  click = 'erase';
+  Color = 'erase';
+  console.log(Color);
 })
 
 function colorPixel(){
   label.style.color = color.value;
-
-  if(click === true){
+  if(click){
+  if(Color === 'color'){
     this.style.background = color.value;
   }
-  else if (click === false){
+  else if (Color === 'random'){
     this.style.background = `hsl(${Math.random() * 360}, 100%, 50%)`;
   }
-  else if (click === 'erase'){
+  else if (Color === 'erase'){
     this.style.background = 'white';
-  }
-}
+  }};
+};
+
+document.querySelector('.board').addEventListener('click', () => {
+  click =! click;
+  console.log(click);
+});
 
 btns.forEach((btn) => {
   btn.addEventListener('click', () => {
